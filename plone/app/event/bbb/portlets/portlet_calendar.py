@@ -3,7 +3,7 @@ from distutils.version import LooseVersion
 from plone.app.event.portlets.portlet_calendar import Assignment
 from plone.app.event.portlets.portlet_calendar import ICalendarPortlet
 from plone.app.event.portlets.portlet_calendar import Renderer as RendererBase
-from plone.app.portlets import PloneMessageFactory as _
+from plone.app.event import _
 import pkg_resources
 
 

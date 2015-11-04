@@ -1,4 +1,4 @@
-from Products.CMFPlone import PloneMessageFactory as _
+from plone.app.event import _
 from plone.app.event.bbb.interfaces import IDateAndTimeSchema
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from plone.app.registry.browser.controlpanel import RegistryEditForm

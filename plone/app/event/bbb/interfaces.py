@@ -1,4 +1,4 @@
-from Products.CMFPlone import PloneMessageFactory as _
+from plone.app.event import _
 from zope import schema
 from zope.interface import Interface
 
