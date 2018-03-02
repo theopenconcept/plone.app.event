@@ -8,6 +8,19 @@ For a Dexterity event type using plone.app.event, use plone.app.contenttypes 1.1
 The complete documentation can be found on: https://ploneappevent.readthedocs.org
 
 
+
+## Extended functionality from the open concept UG ##
+
+With these changes to importer.py it's possible to fetch icalendar from ssl-secured webresource secured by auth digest on webservers side.
+The new format of inputline is:
+
+https://theopenconcept.de/ ... /cal.ics&<auth-domain>&<username>&<password>
+
+obviously it's not possible to use any names or passwords that contain the '&' char as this simple patch only does a simple split('&') to separate the data-strings. Furthermore no checks other than formal adherence to URL naming rules.
+
+
+
+
 Installation
 ------------
 
