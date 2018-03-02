@@ -338,8 +338,18 @@ class IcalendarImportSettingsForm(form.Form):
                 ical_resource = ical_file.data
                 ical_import_from = ical_file.filename
             else:
-                ical_resource = urllib2.urlopen(ical_url).read()
+                # https://theopenconcept.de/.../cal.ics&<auth-domain>&<username>&<password>
+                rec = ical_url.split('&')
+                ical_url = rec[0]
                 ical_import_from = ical_url
+
+                authhandler = urllib2.HTTPDigestAuthHandler()
+                authhandler.add_password( rec[1], ical_url, rec[2], rec[3] )
+                opener = urllib2.build_opener(authhandler)
+                urllib2.install_opener(opener)
+                pagehandle = urllib2.urlopen(ical_url)
+                ical_resource = pagehandle.read()
+                
 
             import_metadata = ical_import(
                 self.context,
